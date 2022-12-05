@@ -39,7 +39,7 @@ const Home = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, [handleSubmit]);
+  }, [handleSubmit, inputData]);
 
   return (
     <>
