@@ -30,6 +30,18 @@ const Home = () => {
   }
 
   useEffect(() => {
+    fetch(`http://localhost:8000/FlightData`)
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        setData(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  useEffect(() => {
     fetch(`http://localhost:8000/FlightData?originCity=${inputData.originCity}&destinationCity=${inputData.destinationCity}`)
       .then((res) => res.json())
       .then((res) => {
@@ -39,7 +51,7 @@ const Home = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, [handleSubmit, inputData]);
+  }, [inputData]);
 
   return (
     <>
